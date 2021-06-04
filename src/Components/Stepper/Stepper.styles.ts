@@ -38,7 +38,8 @@ export const mainStyle = makeStyles((theme: Theme) =>
     },stepperFooter: {
       marginTop: 40,
       display: "flex",
-      justifyContent: "flex-end"
+      justifyContent: "space-between",
+      alignItems: "flex-end"
     }
   }),
 );
