@@ -35,7 +35,11 @@ export const mainStyle = makeStyles((theme: Theme) =>
     instructions: {
       marginTop: theme.spacing(1),
       marginBottom: theme.spacing(1),
-    },
+    },stepperFooter: {
+      marginTop: 40,
+      display: "flex",
+      justifyContent: "flex-end"
+    }
   }),
 );
 
