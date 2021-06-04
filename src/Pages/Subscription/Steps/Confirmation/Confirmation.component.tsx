@@ -12,7 +12,6 @@ export default function Confirmation() {
         <TextField
           label="Email Address"
           name="UserEmail"
-          variant="outlined"
           value={formData?.UserEmail}
           onChange={handleChange}
           fullWidth

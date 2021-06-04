@@ -24,7 +24,6 @@ export default function PaymentData() {
             <TextField
               label="Name"
               name="name"
-              variant="outlined"
               value={formData?.name}
               onChange={handleChange}
               onFocus={handleFocus}
@@ -37,7 +36,6 @@ export default function PaymentData() {
               label="Card Number"
               type="number"
               name="number"
-              variant="outlined"
               value={formData?.number}
               onChange={handleChange}
               onFocus={handleFocus}
@@ -50,7 +48,6 @@ export default function PaymentData() {
               label="Expiry"
               name="expiry"
               type="number"
-              variant="outlined"
               value={formData?.expiry}
               onChange={handleChange}
               onFocus={handleFocus}
@@ -63,7 +60,6 @@ export default function PaymentData() {
               label="CVC"
               name="cvc"
               type="number"
-              variant="outlined"
               value={formData?.cvc}
               onChange={handleChange}
               onFocus={handleFocus}
