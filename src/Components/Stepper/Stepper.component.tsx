@@ -11,8 +11,9 @@ import Typography from '@material-ui/core/Typography';
 import { StepIconProps } from '@material-ui/core/StepIcon';
 import Container from '@material-ui/core/Container';
 import StepperBehaviours from "./Stepper.behaviour"
-import {useColorlibStepIconStyles, mainStyle as useStyles, ColorlibConnector} from "./Stepper.styles"
+import {useColorlibStepIconStyles, ColorlibConnector} from "./Stepper.styles"
 import {ComponentProps} from "./Stepper.types"
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 function ColorlibStepIcon(props: StepIconProps) {
@@ -38,9 +39,8 @@ function ColorlibStepIcon(props: StepIconProps) {
 }
 
 export default function CustomizedSteppers(props:ComponentProps) {
-  const {activeStep, getStepContent,handleNext,handleBack} = StepperBehaviours(props)
+  const {activeStep, getStepContent,handleNext,handleBack, processingCallback, classes} = StepperBehaviours(props)
   const stepsLabel: String[] = Object.keys(props.stepsData)
-  const classes = useStyles();
 
   return (
     <div className={classes.root}>
@@ -75,7 +75,7 @@ export default function CustomizedSteppers(props:ComponentProps) {
                 onClick={handleNext}
                 className={classes.button}
               >
-                {activeStep === stepsLabel.length - 1 ? 'Confirm' : 'Next'}
+                {processingCallback ? <CircularProgress className={classes.processingCallback} size={25} /> : activeStep === stepsLabel.length - 1 ? 'Confirm' : 'Next'}
               </Button>
             </div>
           </div>
