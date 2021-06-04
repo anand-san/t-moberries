@@ -1,4 +1,5 @@
 export interface ComponentProps {
     stepsData: any,
-    stepsLabel: string[]
+    stepsLabel: string[],
+    footerLeft?: JSX.Element
   }
