@@ -1,4 +1,3 @@
-import React from "react";
 import Stepper from "../../Components/Stepper";
 import * as Steps from "./Steps";
 import Paper from "@material-ui/core/Paper";
