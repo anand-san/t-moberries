@@ -3,7 +3,7 @@ import { useAppContext } from "../../../../Utility/useAppContextHook"
 import { FormData } from '../../SubscriptionProcess.types';
 
 export default function ParametersBehaviour() {
-  const { setFormData } = useAppContext()
+  const { setFormData, formData } = useAppContext()
   const handleChange = (
     event: React.ChangeEvent<
       | HTMLInputElement
@@ -20,6 +20,6 @@ export default function ParametersBehaviour() {
     }))
   }
   return {
-    handleChange
+    handleChange, formData
   }
 }
