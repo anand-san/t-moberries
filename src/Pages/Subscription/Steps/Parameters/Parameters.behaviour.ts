@@ -1,27 +1,25 @@
 import React from 'react'
+import { useAppContext } from "../../../../Utility/useAppContextHook"
+import { FormData } from '../../SubscriptionProcess.types';
 
 export default function ParametersBehaviour() {
-    const [formData, setFormData] = React.useState({
-        Duration: 12,
-        Amount: 5,
-        UpfrontPayment: false
-    })
-    const handleChange = (
-        event: React.ChangeEvent<
-          | HTMLInputElement
-          | {
-              name?: string | undefined;
-              value: unknown;
-            }
-        >,
-        sInput: React.ReactNode | boolean
-      ) => {
-        setFormData((currentFormData) => ({
-          ...currentFormData,
-          [event.target.name as string]: (event.target.value as string) || sInput,
-        }));
-      };
-    return {
-        formData, handleChange
-    }
+  const { setFormData } = useAppContext()
+  const handleChange = (
+    event: React.ChangeEvent<
+      | HTMLInputElement
+      | {
+        name?: string | undefined;
+        value: unknown;
+      }
+    >,
+    sInput: React.ReactNode | boolean
+  ) => {
+    setFormData?.((currentFormData: FormData) => ({
+      ...currentFormData,
+      [event.target.name as string]: (event.target.value as string) || sInput
+    }))
+  }
+  return {
+    handleChange
+  }
 }

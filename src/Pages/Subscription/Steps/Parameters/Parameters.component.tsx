@@ -1,4 +1,3 @@
-import React from "react";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
@@ -8,9 +7,12 @@ import Switch from "@material-ui/core/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { useStyles } from "./Parameters.styles";
 import ParametersBehaviour from "./Parameters.behaviour";
+import {useAppContext} from "../../../../Utility/useAppContextHook"
+
 export default function Parameters() {
   const classes = useStyles();
-  const { formData, handleChange } = ParametersBehaviour();
+  const { handleChange } = ParametersBehaviour();
+  const {formData} = useAppContext()
 
   return (
     <>
@@ -18,7 +20,7 @@ export default function Parameters() {
       <InputLabel >Duration</InputLabel>
       <Select
         name="Duration"
-        value={formData.Duration}
+        value={formData?.Duration}
         onChange={handleChange}
         fullWidth
       >
@@ -32,7 +34,7 @@ export default function Parameters() {
       {/* <InputLabel>Amount</InputLabel> */}
       <Select
         name="Amount"
-        value={formData.Amount}
+        value={formData?.Amount}
         onChange={handleChange}
         fullWidth
       >
@@ -47,7 +49,7 @@ export default function Parameters() {
         className={classes.PaymentSwitch}
         control={
           <Switch
-            checked={formData.UpfrontPayment}
+            checked={formData?.UpfrontPayment}
             onChange={handleChange}
             inputProps={{ name: "UpfrontPayment" }}
           />
