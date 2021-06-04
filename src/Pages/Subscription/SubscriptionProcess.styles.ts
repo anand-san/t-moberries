@@ -5,6 +5,10 @@ export const useStyles = makeStyles(() =>
     root: {
       margin: '50px',
       padding: 50
+    },footerLeft: {
+      display: "flex",
+      flexDirection: "column",
+      fontWeight: 600
     }
   }),
 );
