@@ -38,7 +38,7 @@ function ColorlibStepIcon(props: StepIconProps) {
 }
 
 export default function CustomizedSteppers(props:ComponentProps) {
-  const {activeStep, getStepContent,handleNext,handleBack, handleReset} = StepperBehaviours(props)
+  const {activeStep, getStepContent,handleNext,handleBack} = StepperBehaviours(props)
   const stepsLabel: String[] = Object.keys(props.stepsData)
   const classes = useStyles();
 
@@ -55,11 +55,8 @@ export default function CustomizedSteppers(props:ComponentProps) {
         {activeStep === stepsLabel.length ? (
           <div>
             <Typography className={classes.instructions}>
-              All stepsLabel completed - you&apos;re finished
+              <img src="https://i.pinimg.com/originals/b9/88/b7/b988b7c3e84e1f83ef9447157831b460.gif" alt="thank_you" width="100%"/>
             </Typography>
-            <Button onClick={handleReset} className={classes.button}>
-              Reset
-            </Button>
           </div>
         ) : (
           <div>
@@ -78,7 +75,7 @@ export default function CustomizedSteppers(props:ComponentProps) {
                 onClick={handleNext}
                 className={classes.button}
               >
-                {activeStep === stepsLabel.length - 1 ? 'Finish' : 'Next'}
+                {activeStep === stepsLabel.length - 1 ? 'Confirm' : 'Next'}
               </Button>
             </div>
           </div>

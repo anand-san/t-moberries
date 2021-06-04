@@ -15,17 +15,12 @@ export default function StepperBehaviours(props: ComponentProps) {
       const handleBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
       };
-    
-      const handleReset = () => {
-        setActiveStep(0);
-      };
 
     return {
         activeStep,
         setActiveStep,
         getStepContent,
         handleNext,
-        handleBack,
-        handleReset
+        handleBack
     }
 }
