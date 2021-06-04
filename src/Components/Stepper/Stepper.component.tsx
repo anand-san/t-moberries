@@ -14,32 +14,33 @@ import StepperBehaviours from "./Stepper.behaviour"
 import {useColorlibStepIconStyles, mainStyle as useStyles, ColorlibConnector} from "./Stepper.styles"
 import {ComponentProps} from "./Stepper.types"
 
+
+function ColorlibStepIcon(props: StepIconProps) {
+  const classes = useColorlibStepIconStyles();
+  const { active, completed } = props;
+
+  const icons: { [index: string]: React.ReactElement } = {
+    1: <SettingsIcon />,
+    2: <GroupAddIcon />,
+    3: <VideoLabelIcon />,
+  };
+
+  return (
+    <div
+      className={clsx(classes.root, {
+        [classes.active]: active,
+        [classes.completed]: completed,
+      })}
+    >
+      {icons[String(props.icon)]}
+    </div>
+  );
+}
+
 export default function CustomizedSteppers(props:ComponentProps) {
   const {activeStep, getStepContent,handleNext,handleBack, handleReset} = StepperBehaviours(props)
   const stepsLabel: String[] = Object.keys(props.stepsData)
-  const {stepsData} = props
   const classes = useStyles();
-
-  function ColorlibStepIcon(props: StepIconProps) {
-    const classes = useColorlibStepIconStyles();
-    const { active, completed } = props;
-    const mappedIcons = {}
-    stepsLabel.map((e, i) => {
-      mappedIcons[i+1] = stepsData[c].icon
-    })
-    const icons: { [index: string]: React.ReactElement } = 
-  
-    return (
-      <div
-        className={clsx(classes.root, {
-          [classes.active]: active,
-          [classes.completed]: completed,
-        })}
-      >
-        {icons[String(props.icon)]}
-      </div>
-    );
-  }
 
   return (
     <div className={classes.root}>
@@ -63,7 +64,7 @@ export default function CustomizedSteppers(props:ComponentProps) {
         ) : (
           <div>
             <Typography component="section" className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-            <div>
+            <div className={classes.stepperFooter}>
               <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
                 Back
               </Button>
