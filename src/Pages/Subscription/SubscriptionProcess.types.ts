@@ -8,7 +8,9 @@ export interface FormData {
     expiry: number | string,
     cvc: number | string,
     focused: Focused | string,
-    name: string
+    name: string,
+    UserEmail: string,
+    TnC: boolean
 }
 
 export interface FormContext {

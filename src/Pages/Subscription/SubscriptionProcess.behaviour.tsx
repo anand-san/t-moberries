@@ -16,6 +16,8 @@ export default function SubscriptionProcessBehaviour() {
     cvc: "",
     focused: "name",
     name: "",
+    UserEmail: "",
+    TnC: false
   });
 
   React.useEffect(() => {
