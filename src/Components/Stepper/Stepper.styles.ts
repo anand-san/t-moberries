@@ -31,6 +31,7 @@ export const mainStyle = makeStyles((theme: Theme) =>
     },
     button: {
       marginRight: theme.spacing(1),
+      width:115
     },
     instructions: {
       marginTop: theme.spacing(1),
@@ -40,6 +41,8 @@ export const mainStyle = makeStyles((theme: Theme) =>
       display: "flex",
       justifyContent: "space-between",
       alignItems: "flex-end"
+    },processingCallback: {
+      color: "#fff!important",
     }
   }),
 );
