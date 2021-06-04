@@ -3,7 +3,7 @@ import { useAppContext } from "../../../../Utility/useAppContextHook"
 import { FormData } from '../../SubscriptionProcess.types';
 
 export default function PaymentDataBehaviour() {
-    const { setFormData } = useAppContext()
+    const { setFormData, formData } = useAppContext()
 
     const handleChange = (event: React.ChangeEvent<{name: unknown, value: unknown, maxLength: number}>) => {
         if((event.target.value as string).length > event.target.maxLength)
@@ -22,6 +22,6 @@ export default function PaymentDataBehaviour() {
     }
 
     return {
-        handleChange, handleFocus
+        handleChange, handleFocus, formData
     }
 }

@@ -2,13 +2,11 @@ import Cards from "react-credit-cards";
 import PaymentDataBehaviour from "./PaymentData.behaviour";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
-import {useAppContext} from "../../../../Utility/useAppContextHook"
 
 import "react-credit-cards/es/styles-compiled.css";
 
 export default function PaymentData() {
-  const { handleChange, handleFocus } = PaymentDataBehaviour();
-  const {formData} = useAppContext()
+  const { handleChange, handleFocus, formData } = PaymentDataBehaviour();
   return (
     <Grid container spacing={8}>
       <Grid item xs={6}>
