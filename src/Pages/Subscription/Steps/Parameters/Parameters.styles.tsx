@@ -3,8 +3,7 @@ import { makeStyles, createStyles } from "@material-ui/core/styles";
 export const useStyles = makeStyles(() =>
   createStyles({
     form: {
-      width: "80%",
-      maxWidth: 850,
+      width: "100%",
     },
     PaymentSwitch: {
       display: "flex",
