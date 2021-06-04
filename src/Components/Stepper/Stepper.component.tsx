@@ -65,6 +65,10 @@ export default function CustomizedSteppers(props:ComponentProps) {
           <div>
             <Typography component="section" className={classes.instructions}>{getStepContent(activeStep)}</Typography>
             <div className={classes.stepperFooter}>
+              <div>
+                {props.footerLeft}
+              </div>
+              <div>
               <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
                 Back
               </Button>
@@ -77,6 +81,7 @@ export default function CustomizedSteppers(props:ComponentProps) {
                 {activeStep === stepsLabel.length - 1 ? 'Finish' : 'Next'}
               </Button>
             </div>
+          </div>
           </div>
         )}
       </Container>
