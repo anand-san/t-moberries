@@ -9,7 +9,7 @@ export default function PaymentData() {
   const { handleChange, handleFocus, formData } = PaymentDataBehaviour();
   return (
     <Grid container spacing={8}>
-      <Grid item xs={6}>
+      <Grid item xs={12} md={6}>
         <Cards
           cvc={(formData?.cvc.Value as string)}
           expiry={(formData?.expiry.Value as string)}
@@ -20,7 +20,7 @@ export default function PaymentData() {
           number={(formData?.number.Value as string)}
         />
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={12} md={6}>
         <Grid container spacing={1}>
           <Grid item xs={12}>
             <TextField
@@ -32,6 +32,7 @@ export default function PaymentData() {
               onFocus={handleFocus}
               inputProps={{ maxLength: 30 }}
               fullWidth
+              helperText={formData?.name.HelperText}
             />
           </Grid>
           <Grid item xs={12}>
@@ -45,6 +46,7 @@ export default function PaymentData() {
               onFocus={handleFocus}
               inputProps={{ maxLength: 16 }}
               fullWidth
+              helperText={formData?.number.HelperText}
             />
           </Grid>
           <Grid item xs={6}>
@@ -58,6 +60,7 @@ export default function PaymentData() {
               onFocus={handleFocus}
               inputProps={{ maxLength: 4 }}
               fullWidth
+              helperText={formData?.expiry.HelperText}
             />
           </Grid>
           <Grid item xs={6}>
@@ -71,6 +74,7 @@ export default function PaymentData() {
               onFocus={handleFocus}
               inputProps={{ maxLength: 4 }}
               fullWidth
+              helperText={formData?.cvc.HelperText}
             />
           </Grid>
         </Grid>
