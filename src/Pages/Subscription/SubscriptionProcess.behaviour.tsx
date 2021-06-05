@@ -8,6 +8,7 @@ import VideoLabelIcon from "@material-ui/icons/VideoLabel";
 import { useStyles } from "./SubscriptionProcess.styles";
 import * as Steps from "./Steps";
 import { postData } from "../../API/request-layer";
+
 export default function SubscriptionProcessBehaviour() {
   const [isError, setIsError] = React.useState<string | null>(null);
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
@@ -121,10 +122,12 @@ export default function SubscriptionProcessBehaviour() {
 
   const validateInput = (dependentFields: string[]) => {
       let currentFormData = {...formData}
-      let match = dependentFields.every((e:string) => {
+      let match = true
+      dependentFields.map((e:string) => {
         if(!currentFormData[e].Value){
           currentFormData[e].Error = true
-          return false
+          // currentFormData[e].HelperText = `${e} is required`
+          match = false
         }
         return true
       })
