@@ -6,7 +6,7 @@ export interface ComponentProps {
     footerLeft?: JSX.Element
   }
 
-interface StepsData {
+export interface StepsData {
   [key:string] : {
     icon: React.ReactElement,
     component: React.ReactElement,
