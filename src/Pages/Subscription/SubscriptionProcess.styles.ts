@@ -3,7 +3,7 @@ import { makeStyles, createStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      margin: '50px',
+      marginTop: 10,
       padding: 50,
       minWidth: "300px"
     },footerLeft: {
