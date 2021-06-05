@@ -10,6 +10,6 @@ interface StepsData {
   [key:string] : {
     icon: React.ReactElement,
     component: React.ReactElement,
-    callback: Function
+    callback?: Function
   }
 }
