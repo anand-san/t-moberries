@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/seanjin17/t-moberries/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/seanjin17/t-moberries/static/js/main.6ee7f45b.chunk.js",
+    "main.js.map": "/seanjin17/t-moberries/static/js/main.6ee7f45b.chunk.js.map",
+    "runtime-main.js": "/seanjin17/t-moberries/static/js/runtime-main.7d73a387.js",
+    "runtime-main.js.map": "/seanjin17/t-moberries/static/js/runtime-main.7d73a387.js.map",
+    "static/css/2.727685ba.chunk.css": "/seanjin17/t-moberries/static/css/2.727685ba.chunk.css",
+    "static/js/2.65d3875b.chunk.js": "/seanjin17/t-moberries/static/js/2.65d3875b.chunk.js",
+    "static/js/2.65d3875b.chunk.js.map": "/seanjin17/t-moberries/static/js/2.65d3875b.chunk.js.map",
+    "static/js/3.295bbfc9.chunk.js": "/seanjin17/t-moberries/static/js/3.295bbfc9.chunk.js",
+    "static/js/3.295bbfc9.chunk.js.map": "/seanjin17/t-moberries/static/js/3.295bbfc9.chunk.js.map",
+    "index.html": "/seanjin17/t-moberries/index.html",
+    "static/css/2.727685ba.chunk.css.map": "/seanjin17/t-moberries/static/css/2.727685ba.chunk.css.map",
+    "static/css/main.6dea0f05.chunk.css.map": "/seanjin17/t-moberries/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.65d3875b.chunk.js.LICENSE.txt": "/seanjin17/t-moberries/static/js/2.65d3875b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7d73a387.js",
+    "static/css/2.727685ba.chunk.css",
+    "static/js/2.65d3875b.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.6ee7f45b.chunk.js"
+  ]
+}
