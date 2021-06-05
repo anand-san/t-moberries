@@ -9,8 +9,8 @@ function App() {
 
   const footerLeft = (
     <div className={classes.footerLeft}>
-      <span>Selected Plan: {`${formData.Duration} Months/${formData.Amount} GB`}</span>
-      <span>Final Price: {`${isLoading ? "Fetching" : "$" + getFinalPrice(formData.Duration, formData.Amount, subscriptionPrices)}`}</span>
+      <span>Selected Plan: {`${formData.Duration.Value as string} Months/${formData.Amount.Value as string} GB`}</span>
+      <span>Final Price: {`${isLoading ? "Fetching" : "$" + getFinalPrice(formData.Duration.Value as number, formData.Amount.Value as number, subscriptionPrices)}`}</span>
     </div>
   );
 

@@ -1,26 +1,44 @@
-import React from 'react'
-import { useAppContext } from "../../../../Utility/useAppContextHook"
-import { FormData } from '../../SubscriptionProcess.types';
+import React from "react";
+import { useAppContext } from "../../../../Utility/useAppContextHook";
+import { FormData } from "../../SubscriptionProcess.types";
 
 export default function PaymentDataBehaviour() {
-    const { setFormData, formData } = useAppContext()
+  const { setFormData, formData } = useAppContext();
 
-    const handleChange = (event: React.ChangeEvent<{name: unknown, value: unknown, maxLength: number}>) => {
-        console.log(event.target.value)
-        setFormData?.((currentFormData:FormData) => ({
-            ...currentFormData,
-            [event.target.name as string] : event.target.value as string
-        }))
-    }
+  const handleChange = (
+    event: React.ChangeEvent<{
+      name: unknown;
+      value: unknown;
+      maxLength: number;
+    }>
+  ) => {
+    setFormData?.((currentFormData: FormData) => ({
+      ...currentFormData,
+      [event.target.name as string]: {
+        Value: event.target.value as string,
+        Error: false,
+        HelperText: "",
+      },
+    }));
+  };
 
-    const handleTnC = (event: React.ChangeEvent<{name: unknown}>, checkboxValue: boolean) => {
-        setFormData?.((currentFormData:FormData) => ({
-            ...currentFormData,
-            [event.target.name as string] : checkboxValue
-        }))
-    }
+  const handleTnC = (
+    event: React.ChangeEvent<{ name: unknown }>,
+    checkboxValue: boolean
+  ) => {
+    setFormData?.((currentFormData: FormData) => ({
+      ...currentFormData,
+      [event.target.name as string]: {
+        Value: checkboxValue,
+        Error: false,
+        HelperText: "",
+      },
+    }));
+  };
 
-    return {
-        handleChange, formData, handleTnC
-    }
+  return {
+    handleChange,
+    formData,
+    handleTnC,
+  };
 }

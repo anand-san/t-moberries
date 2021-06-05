@@ -12,11 +12,15 @@ export default function ParametersBehaviour() {
         value: unknown;
       }
     >,
-    sInput: React.ReactNode | boolean
+    secondaryInput: React.ReactNode | boolean
   ) => {
     setFormData?.((currentFormData: FormData) => ({
       ...currentFormData,
-      [event.target.name as string]: (event.target.value as string) || sInput
+      [event.target.name as string]: {
+        Value: (event.target.value as string) || Boolean(secondaryInput),
+        Error: false,
+        HelperText: ""
+      }
     }))
   }
   return {
