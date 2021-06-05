@@ -15,9 +15,7 @@ export default function StepperBehaviours(props: ComponentProps) {
       setProcessingCallback(true)
       let func = props.stepsData[props.stepsLabel[activeStep]].callback || ((): boolean => true)
       let cb = await func()
-      if (!cb)
-        return
-      else
+      if (cb)
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
     } catch (e) {
       console.log(e)
