@@ -3,51 +3,25 @@ import clsx from 'clsx';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import SettingsIcon from '@material-ui/icons/Settings';
-import GroupAddIcon from '@material-ui/icons/GroupAdd';
-import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { StepIconProps } from '@material-ui/core/StepIcon';
 import Container from '@material-ui/core/Container';
 import StepperBehaviours from "./Stepper.behaviour"
 import {useColorlibStepIconStyles, ColorlibConnector} from "./Stepper.styles"
-import {ComponentProps} from "./Stepper.types"
+import {ComponentProps, StepsData} from "./Stepper.types"
 import CircularProgress from '@material-ui/core/CircularProgress';
-
-
-function ColorlibStepIcon(props: StepIconProps) {
-  const classes = useColorlibStepIconStyles();
-  const { active, completed } = props;
-
-  const icons: { [index: string]: React.ReactElement } = {
-    1: <SettingsIcon />,
-    2: <GroupAddIcon />,
-    3: <VideoLabelIcon />,
-  };
-
-  return (
-    <div
-      className={clsx(classes.root, {
-        [classes.active]: active,
-        [classes.completed]: completed,
-      })}
-    >
-      {icons[String(props.icon)]}
-    </div>
-  );
-}
 
 export default function CustomizedSteppers(props:ComponentProps) {
   const {activeStep, getStepContent,handleNext,handleBack, processingCallback, classes} = StepperBehaviours(props)
-  const stepsLabel: String[] = Object.keys(props.stepsData)
+  const {stepsLabel, stepsData} = props
 
   return (
     <div className={classes.root}>
       <Stepper alternativeLabel activeStep={activeStep} connector={<ColorlibConnector />}>
         {stepsLabel.map((label,index) => (
           <Step key={`step-${index}`}>
-            <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>
+            <StepLabel StepIconComponent={props => ColorlibStepIcon(props, stepsData)}>{label}</StepLabel>
           </Step>
         ))}
       </Stepper>
@@ -82,6 +56,30 @@ export default function CustomizedSteppers(props:ComponentProps) {
           </div>
         )}
       </Container>
+    </div>
+  );
+}
+
+// Handle icons active/inactive styling
+function ColorlibStepIcon(iconProps: StepIconProps, stepsData: StepsData) {
+  const classes = useColorlibStepIconStyles();
+  const { active, completed } = iconProps;
+
+  interface Icons {
+    [index: string]: React.ReactElement
+  }
+  let icons: Icons = {};
+
+  Object.keys(stepsData).map((e:string, i:number) => icons[i+1] = stepsData[e].icon)
+
+  return (
+    <div
+      className={clsx(classes.root, {
+        [classes.active]: active,
+        [classes.completed]: completed,
+      })}
+    >
+      {icons[String(iconProps.icon)]}
     </div>
   );
 }
