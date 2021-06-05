@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentProps } from "./Stepper.types"
-import {mainStyle as useStyles} from "./Stepper.styles"
+import { mainStyle as useStyles } from "./Stepper.styles"
 
 export default function StepperBehaviours(props: ComponentProps) {
   const classes = useStyles();
@@ -10,15 +10,20 @@ export default function StepperBehaviours(props: ComponentProps) {
     return props.stepsData[props.stepsLabel[step]].component;
   }
 
-  const handleNext = () => {
-    setProcessingCallback(true)
-    let cb = props.stepsData[props.stepsLabel[activeStep]].callback()
-    setTimeout(() => {
-      setProcessingCallback(false)
-      if(!cb)
+  const handleNext = async () => {
+    try {
+      setProcessingCallback(true)
+      let func = props.stepsData[props.stepsLabel[activeStep]].callback || ((): boolean => true)
+      let cb = await func()
+      if (!cb)
         return
-      setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    }, 350)
+      else
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    } catch (e) {
+      console.log(e)
+    } finally {
+      setProcessingCallback(false)
+    }
   };
 
   const handleBack = () => {
