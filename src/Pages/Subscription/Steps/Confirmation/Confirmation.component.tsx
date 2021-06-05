@@ -18,6 +18,7 @@ export default function Confirmation() {
           error={formData?.UserEmail.Error as boolean}
           onChange={handleChange}
           fullWidth
+          helperText={formData?.UserEmail.HelperText}
         />
       </Grid>
       <Grid item xs={12}>
