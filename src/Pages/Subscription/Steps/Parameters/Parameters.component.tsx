@@ -13,12 +13,12 @@ export default function Parameters() {
   const { handleChange, formData } = ParametersBehaviour();
 
   return (
-    <>
+    <div>
       <FormControl className={classes.form}>
-        <InputLabel>Duration</InputLabel>
+        <InputLabel>Duration (Months)</InputLabel>
         <Select
           name="Duration"
-          value={formData?.Duration}
+          value={formData?.Duration.Value}
           onChange={handleChange}
           fullWidth
         >
@@ -26,13 +26,13 @@ export default function Parameters() {
           <MenuItem value={6}>6</MenuItem>
           <MenuItem value={12}>12</MenuItem>
         </Select>
-        <FormHelperText>In Months*</FormHelperText>
+        <FormHelperText></FormHelperText>
       </FormControl>
       <FormControl className={classes.form}>
-        {/* <InputLabel>Amount</InputLabel> */}
+        <InputLabel>Amount (GB)</InputLabel>
         <Select
           name="Amount"
-          value={formData?.Amount}
+          value={formData?.Amount.Value}
           onChange={handleChange}
           fullWidth
         >
@@ -40,14 +40,14 @@ export default function Parameters() {
           <MenuItem value={10}>10</MenuItem>
           <MenuItem value={50}>50</MenuItem>
         </Select>
-        <FormHelperText>In GB*</FormHelperText>
+        <FormHelperText></FormHelperText>
       </FormControl>
       <FormControl className={classes.form}>
         <FormControlLabel
           className={classes.PaymentSwitch}
           control={
             <Switch
-              checked={formData?.UpfrontPayment}
+              checked={Boolean(formData?.UpfrontPayment.Value)}
               onChange={handleChange}
               inputProps={{ name: "UpfrontPayment" }}
             />
@@ -56,6 +56,6 @@ export default function Parameters() {
           labelPlacement="start"
         />
       </FormControl>
-    </>
+    </div>
   );
 }
